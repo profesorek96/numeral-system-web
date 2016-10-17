@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Numeral conveerter</title>
+	
+	
+
+	<script type="text/javascript">
+	
+		function numeral_system_convert()
+		{
+			var number = document.getElementById("number-in").value;
+			var system_source=document.getElementById("system-in").value;
+			var system_objective=document.getElementById("system-out").value;
+			var convertion;
+			if(system_objective==10)convertion=parseInt(number, system_source);
+			else if(system_source==10){
+				number=parseInt(number, 10);
+				convertion=number.toString(system_objective);
+				}
+			else {
+				convertion=parseInt(number, system_source);
+				convertion=parseInt(convertion, 10);
+				convertion=convertion.toString(system_objective);
+				
+				}
+		
+			document.getElementById("wynik").innerHTML=convertion;
+			
+		}
+			
+		
+	</script>
+	
+	
+	
+</head>
+<body>
+
+
+    <div id="contener" >
+		<h1>Numeral System Converter</h1>
+		<br>
+		Number to convert:
+		<br>
+		<input type="text" id="number-in"/>
+		<br>
+		Source system:
+		<br>
+		
+		<input type="number" min="2" max="36" value="2" id="system-in" />
+		<br>
+		Objective system:
+		<br>
+		<input type="number" min="2" max="36" value="2" id="system-out" />
+		<br>
+		<br>
+		<input type="submit" value="Convert" onClick="numeral_system_convert()"/>
+		<br>
+		<br>
+		Effect:
+		<div id="wynik"></div>
+	</div>
+</body>
+</html>
